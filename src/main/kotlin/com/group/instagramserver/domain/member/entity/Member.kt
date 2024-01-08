@@ -1,4 +1,4 @@
-package com.group.instagramserver.domain.user.entity
+package com.group.instagramserver.domain.member.entity
 
 import com.group.instagramserver.common.entity.BaseEntity
 import jakarta.persistence.Column
@@ -6,8 +6,8 @@ import jakarta.persistence.Entity
 import jakarta.persistence.Table
 
 @Entity
-@Table(name = "user")
-class User(
+@Table(name = "member")
+class Member(
     @Column(nullable = false, unique = true)
     var email: String,
 
@@ -34,8 +34,8 @@ class User(
             name: String = "name",
             username: String = "username",
             password: String = "password",
-        ): User {
-            return User(email, name, username, password)
+        ): Member {
+            return Member(email, name, username, password)
         }
     }
 }

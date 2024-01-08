@@ -1,6 +1,6 @@
-package com.group.instagramserver.domain.user.dto
+package com.group.instagramserver.domain.member.dto
 
-import com.group.instagramserver.domain.user.entity.User
+import com.group.instagramserver.domain.member.entity.Member
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
 import org.hibernate.validator.constraints.Length
@@ -11,20 +11,20 @@ data class SignUpRequest(
     val email: String,
 
     @NotBlank
-    @Length(min = User.MIN_NAME_LENGTH, max = User.MAX_NAME_LENGTH)
+    @Length(min = Member.MIN_NAME_LENGTH, max = Member.MAX_NAME_LENGTH)
     val name: String,
 
     @NotBlank
-    @Length(min = User.MIN_USERNAME_LENGTH, max = User.MAX_USERNAME_LENGTH)
+    @Length(min = Member.MIN_USERNAME_LENGTH, max = Member.MAX_USERNAME_LENGTH)
     val username: String,
 
     @NotBlank
-    @Length(min = User.MIN_PASSWORD_LENGTH, max = User.MAX_PASSWORD_LENGTH)
+    @Length(min = Member.MIN_PASSWORD_LENGTH, max = Member.MAX_PASSWORD_LENGTH)
     val password: String,
 ) {
 
-    fun toEntity(): User {
-        return User(
+    fun toEntity(): Member {
+        return Member(
             email,
             name,
             username,

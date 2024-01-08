@@ -16,18 +16,18 @@ data class SignUpRequest(
 
     @NotBlank
     @Length(min = User.MIN_USERNAME_LENGTH, max = User.MAX_USERNAME_LENGTH)
-    val userName: String,
+    val username: String,
 
     @NotBlank
     @Length(min = User.MIN_PASSWORD_LENGTH, max = User.MAX_PASSWORD_LENGTH)
     val password: String,
 ) {
-    
+
     fun toEntity(): User {
         return User(
             email,
             name,
-            userName,
+            username,
             password,
         )
     }
@@ -36,10 +36,10 @@ data class SignUpRequest(
         fun fixture(
             email: String = "email@email.com",
             name: String = "name",
-            userName: String = "userName",
+            username: String = "username",
             password: String = "password",
         ): SignUpRequest {
-            return SignUpRequest(email, name, userName, password)
+            return SignUpRequest(email, name, username, password)
         }
     }
 }

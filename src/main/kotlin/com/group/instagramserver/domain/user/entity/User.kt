@@ -15,7 +15,7 @@ class User(
     var name: String,
 
     @Column(nullable = false, unique = true)
-    var userName: String,
+    var username: String,
 
     @Column(nullable = false)
     var password: String,
@@ -32,10 +32,10 @@ class User(
         fun fixture(
             email: String = "email@email.com",
             name: String = "name",
-            userName: String = "userName",
+            username: String = "username",
             password: String = "password",
         ): User {
-            return User(email, name, userName, password)
+            return User(email, name, username, password)
         }
     }
 }

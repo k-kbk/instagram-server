@@ -14,7 +14,7 @@ class UserService(
     fun signUp(request: SignUpRequest): String {
         val user = request.run {
             checkDuplicateEmail(email)
-            checkDuplicateUserName(userName)
+            checkDuplicateUserName(username)
             this.toEntity()
         }
         userRepository.save(user)
@@ -23,12 +23,16 @@ class UserService(
     }
 
     @Transactional(readOnly = true)
-    fun checkDuplicateUserName(userName: String) {
-        require(!userRepository.existsByUserName(userName))
+    fun checkDuplicateEmail(email: String) {
+        require(!userRepository.existsByEmail(email)) {
+            "duplicate email"
+        }
     }
 
     @Transactional(readOnly = true)
-    fun checkDuplicateEmail(email: String) {
-        require(!userRepository.existsByEmail(email))
+    fun checkDuplicateUserName(userName: String) {
+        require(!userRepository.existsByUsername(userName)) {
+            "duplicate username"
+        }
     }
 }

@@ -1,6 +1,6 @@
-package com.group.instagramserver.domain.member.application
+package com.group.instagramserver.domain.auth.application
 
-import com.group.instagramserver.domain.member.dto.SignUpRequest
+import com.group.instagramserver.domain.auth.dto.SignUpRequest
 import com.group.instagramserver.domain.member.entity.Member
 import com.group.instagramserver.domain.member.repository.MemberRepository
 import io.kotest.assertions.throwables.shouldThrow
@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class MemberServiceTest @Autowired constructor(
-    private val memberService: MemberService,
+class AuthServiceTest @Autowired constructor(
+    private val authService: AuthService,
     private val memberRepository: MemberRepository,
 ) : BehaviorSpec({
 
@@ -28,7 +28,7 @@ class MemberServiceTest @Autowired constructor(
         When("이미 사용 중인 이메일을 입력하면") {
             val request = SignUpRequest.fixture(email = email)
             val result = shouldThrow<IllegalArgumentException> {
-                memberService.signUp(request)
+                authService.signUp(request)
             }
 
             Then("예외를 던진다") {
@@ -39,7 +39,7 @@ class MemberServiceTest @Autowired constructor(
         When("이미 사용 중인 사용자명을 입력하면") {
             val request = SignUpRequest.fixture(username = username)
             val result = shouldThrow<IllegalArgumentException> {
-                memberService.signUp(request)
+                authService.signUp(request)
             }
 
             Then("예외를 던진다") {
@@ -49,7 +49,7 @@ class MemberServiceTest @Autowired constructor(
 
         When("모든 값을 정상적으로 입력하면") {
             val request = SignUpRequest.fixture()
-            val result = memberService.signUp(request)
+            val result = authService.signUp(request)
 
             Then("회원가입에 성공한다") {
                 result shouldBe "ok"

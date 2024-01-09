@@ -1,6 +1,6 @@
 package com.group.instagramserver.domain.auth.api
 
-import com.group.instagramserver.common.ApiResponse
+import com.group.instagramserver.common.api.ApiResponse
 import com.group.instagramserver.domain.auth.application.AuthService
 import com.group.instagramserver.domain.auth.dto.SignInRequest
 import com.group.instagramserver.domain.auth.dto.SignInResponse

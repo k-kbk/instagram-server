@@ -1,4 +1,4 @@
-package com.group.instagramserver.common
+package com.group.instagramserver.common.api
 
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

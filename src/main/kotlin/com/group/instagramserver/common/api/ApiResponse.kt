@@ -1,4 +1,4 @@
-package com.group.instagramserver.common
+package com.group.instagramserver.common.api
 
 data class ApiResponse<T>(
     val message: String? = null,

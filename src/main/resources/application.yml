@@ -16,3 +16,6 @@ spring:
       hibernate:
         format_sql: true
         highlight_sql: true
+
+jwt:
+  secret: ${SECRET}

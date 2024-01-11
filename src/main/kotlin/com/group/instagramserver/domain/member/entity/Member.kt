@@ -42,7 +42,7 @@ class Member(
             username: String = "username",
             password: String = "password",
             introduction: String = "introduction",
-            profileImage: String? = null,
+            profileImage: String? = "profile_images/image_20240111.png",
         ): Member {
             return Member(email, name, username, password, introduction, profileImage)
         }

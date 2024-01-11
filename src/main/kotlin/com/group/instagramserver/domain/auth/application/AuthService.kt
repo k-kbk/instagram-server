@@ -21,6 +21,7 @@ class AuthService(
             checkDuplicateUsername(username)
             this.toEntity(encoder)
         }
+
         memberRepository.save(member)
 
         return "ok"
